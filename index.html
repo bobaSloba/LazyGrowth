@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LazyGrowth Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #FFFFFF; color: #1F2937; }
+        nav {
+            background: #1F2937;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        nav:hover { background: #374151; }
+        nav a {
+            color: #2DD4BF;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #FFFFFF; }
+        .hero {
+            background: url('hero.jpg') no-repeat center/cover;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 150px 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        .hero h1 {
+            font-size: 3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: fadeSlide 1s ease-out;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            animation: fadeSlide 1s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+        .cta-button {
+            background: #1F2937;
+            color: #2DD4BF;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            animation: fadeSlide 1s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+        .cta-button:hover {
+            background: #374151;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #1F2937;
+            color: #2DD4BF;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2em; }
+            .hero p { font-size: 1.2em; }
+            nav { flex-direction: column; }
+            nav a { margin: 5px 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">LazyGrowth Marketing</a>
+        <div>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <section class="hero">
+        <h1>Unleash Growth, the Lazy Way</h1>
+        <p>We turn your goals into wins with next-level marketing magic.</p>
+        <button class="cta-button" onclick="location.href='services.html'">See How We Do It</button>
+    </section>
+    <footer>
+        <p>© 2025 LazyGrowth Marketing. All rights reserved.</p>
+    </footer>
+</body>
+</html>
