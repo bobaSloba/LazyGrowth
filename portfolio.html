@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - LazyGrowth Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #FFFFFF; color: #1F2937; }
+        nav {
+            background: #1F2937;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        nav:hover { background: #374151; }
+        nav a {
+            color: #2DD4BF;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #FFFFFF; }
+        .portfolio {
+            padding: 60px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .portfolio.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .portfolio h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2DD4BF;
+        }
+        .portfolio p.intro {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .project-card {
+            background: #F3F4F6;
+            padding: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .project-card img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .project-card h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #2DD4BF;
+        }
+        .project-card p {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .cta-button {
+            background: #1F2937;
+            color: #2DD4BF;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .cta-button:hover {
+            background: #374151;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #1F2937;
+            color: #2DD4BF;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .portfolio h1 { font-size: 2em; }
+            .portfolio p.intro { font-size: 1em; }
+            nav { flex-direction: column; }
+            nav a { margin: 5px 0; }
+            .project-card img { max-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">LazyGrowth Marketing</a>
+        <div>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <section class="portfolio" id="portfolio">
+        <h1>Proof We’re the Real Deal</h1>
+        <p class="intro">Check the wins we’ve stacked—your competition’s already shaking.</p>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="digital.jpg" alt="Vibe Apparel Campaign">
+                <h2>Vibe Apparel</h2>
+                <p>Tripled their sales with a social ad blitz that broke the internet.</p>
+                <button class="cta-button" onclick="location.href='contact.html'">Get Yours</button>
+            </div>
+            <div class="project-card">
+                <img src="seo.jpg" alt="TechBit SEO">
+                <h2>TechBit</h2>
+                <p>Shot them to Google’s #1 spot in 3 months—traffic went nuts.</p>
+                <button class="cta-button" onclick="location.href='contact.html'">Rank Up</button>
+            </div>
+            <div class="project-card">
+                <img src="content.jpg" alt="GlowSkin Content">
+                <h2>GlowSkin</h2>
+                <p>Viral vids and blogs—10x engagement, their fans couldn’t shut up.</p>
+                <button class="cta-button" onclick="location.href='contact.html'">Go Viral</button>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 LazyGrowth Marketing. All rights reserved.</p>
+    </footer>
+    <script>
+        const section = document.querySelector('.portfolio');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        observer.observe(section);
+    </script>
+</body>
+</html>
