@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - LazyGrowth Marketing</title>
+    <title>Pricing - LazyGrowth Marketing</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,43 +28,71 @@
             transition: color 0.3s;
         }
         nav a:hover { color: #FFFFFF; }
-        .contact {
+        .pricing {
             padding: 60px 20px;
             text-align: center;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
-        .contact.visible {
+        .pricing.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .contact h1 {
+        .pricing h1 {
             font-size: 2.5em;
             margin-bottom: 20px;
             color: #2DD4BF;
         }
-        .contact p {
+        .pricing p.intro {
             font-size: 1.2em;
             max-width: 800px;
             margin: 0 auto 40px;
         }
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto 30px;
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #1F2937;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
+        .price-card {
+            background: #F3F4F6;
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .price-card h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #2DD4BF;
+        }
+        .price-card .price {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1F2937;
+        }
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .price-card ul li {
             font-size: 1em;
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
         }
-        .contact-form textarea {
-            height: 150px;
-            resize: none;
+        .price-card ul li:before {
+            content: "✓";
+            color: #2DD4BF;
+            position: absolute;
+            left: 0;
         }
         .cta-button {
             background: #1F2937;
@@ -81,22 +109,6 @@
             background: #374151;
             transform: scale(1.05);
         }
-        .contact-info {
-            max-width: 600px; /* Match form width */
-            margin: 0 auto; /* Center it */
-            text-align: center; /* Ensure text aligns center */
-            padding-top: 20px;
-        }
-        .contact-info p {
-            font-size: 1.1em;
-            margin: 10px 0;
-        }
-        .contact-info a {
-            color: #2DD4BF;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .contact-info a:hover { color: #3B82F6; }
         footer {
             background: #1F2937;
             color: #2DD4BF;
@@ -105,10 +117,11 @@
             font-size: 0.9em;
         }
         @media (max-width: 768px) {
-            .contact h1 { font-size: 2em; }
-            .contact p { font-size: 1em; }
+            .pricing h1 { font-size: 2em; }
+            .pricing p.intro { font-size: 1em; }
             nav { flex-direction: column; }
             nav a { margin: 5px 0; }
+            .price-card .price { font-size: 1.5em; }
         }
     </style>
 </head>
@@ -123,25 +136,47 @@
             <a href="pricing.html">Pricing</a>
         </div>
     </nav>
-    <section class="contact" id="contact">
-        <h1>Let’s Make Waves Together</h1>
-        <p>Got a dream? We’ve got the firepower. Drop us a line—your growth starts now.</p>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Tell us your wildest goals..." required></textarea>
-            <button class="cta-button" type="submit">Launch It</button>
-        </form>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:hello@lazygrowth.com">hello@lazygrowth.com</a></p>
-            <p>Phone: (555) 123-4567</p>
+    <section class="pricing" id="pricing">
+        <h1>Pricing That Packs a Punch</h1>
+        <p class="intro">Pick your tier and watch us turn lazy into legendary. No fluff, just results.</p>
+        <div class="price-grid">
+            <div class="price-card">
+                <h2>Starter</h2>
+                <div class="price">$99/mo</div>
+                <ul>
+                    <li>Basic domination package</li>
+                    <li>1 social campaign</li>
+                    <li>SEO kickstart</li>
+                </ul>
+                <button class="cta-button" onclick="location.href='contact.html'">Get It</button>
+            </div>
+            <div class="price-card">
+                <h2>Pro</h2>
+                <div class="price">$499/mo</div>
+                <ul>
+                    <li>Total chaos mode</li>
+                    <li>3 social campaigns</li>
+                    <li>SEO + content blast</li>
+                </ul>
+                <button class="cta-button" onclick="location.href='contact.html'">Go Pro</button>
+            </div>
+            <div class="price-card">
+                <h2>Elite</h2>
+                <div class="price">Call Us</div>
+                <ul>
+                    <li>World takeover vibes</li>
+                    <li>Unlimited campaigns</li>
+                    <li>Full-stack domination</li>
+                </ul>
+                <button class="cta-button" onclick="location.href='contact.html'">Rule It</button>
+            </div>
         </div>
     </section>
     <footer>
         <p>© 2025 LazyGrowth Marketing. All rights reserved.</p>
     </footer>
     <script>
-        const section = document.querySelector('.contact');
+        const section = document.querySelector('.pricing');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
