@@ -31,8 +31,9 @@
         .about {
             padding: 60px 20px;
             text-align: center;
-            background: #1F2937;
+            background: url('about-team.jpg') no-repeat center/cover;
             color: #FFFFFF;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -57,7 +58,7 @@
             height: auto;
             border-radius: 5px;
             margin: 20px auto;
-            display: block;
+            display: none; /* Hide old team.jpg since background is now the hero */
         }
         .cta-button {
             background: #2DD4BF;
@@ -89,7 +90,6 @@
             .about p { font-size: 1em; }
             nav { flex-direction: column; }
             nav a { margin: 5px 0; }
-            .about img { max-width: 400px; }
         }
     </style>
 </head>
