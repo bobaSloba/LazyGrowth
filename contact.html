@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - LazyGrowth Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #FFFFFF; color: #1F2937; }
+        nav {
+            background: #1F2937;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        nav:hover { background: #374151; }
+        nav a {
+            color: #2DD4BF;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #FFFFFF; }
+        .contact {
+            padding: 60px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .contact.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contact h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2DD4BF;
+        }
+        .contact p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #1F2937;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+        }
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+        .cta-button {
+            background: #1F2937;
+            color: #2DD4BF;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .cta-button:hover {
+            background: #374151;
+            transform: scale(1.05);
+        }
+        .contact-info {
+            margin-top: 30px;
+        }
+        .contact-info p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .contact-info a {
+            color: #2DD4BF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover { color: #3B82F6; }
+        footer {
+            background: #1F2937;
+            color: #2DD4BF;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .contact h1 { font-size: 2em; }
+            .contact p { font-size: 1em; }
+            nav { flex-direction: column; }
+            nav a { margin: 5px 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">LazyGrowth Marketing</a>
+        <div>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <section class="contact" id="contact">
+        <h1>Let’s Make Waves Together</h1>
+        <p>Got a dream? We’ve got the firepower. Drop us a line—your growth starts now.</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Tell us your wildest goals..." required></textarea>
+            <button class="cta-button" type="submit">Launch It</button>
+        </form>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:hello@lazygrowth.com">hello@lazygrowth.com</a></p>
+            <p>Phone: (555) 123-4567</p>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 LazyGrowth Marketing. All rights reserved.</p>
+    </footer>
+    <script>
+        const section = document.querySelector('.contact');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        observer.observe(section);
+    </script>
+</body>
+</html>
