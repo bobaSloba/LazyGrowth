@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - LazyGrowth Marketing</title>
+    <title>Blog - LazyGrowth Marketing</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,43 +28,63 @@
             transition: color 0.3s;
         }
         nav a:hover { color: #FFFFFF; }
-        .contact {
+        .blog {
             padding: 60px 20px;
             text-align: center;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
-        .contact.visible {
+        .blog.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .contact h1 {
+        .blog h1 {
             font-size: 2.5em;
             margin-bottom: 20px;
             color: #2DD4BF;
         }
-        .contact p {
+        .blog p.intro {
             font-size: 1.2em;
             max-width: 800px;
             margin: 0 auto 40px;
         }
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto 30px;
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .contact-form input, .contact-form textarea {
+        .post-card {
+            background: #F3F4F6;
+            padding: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .post-card img {
             width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #1F2937;
+            max-width: 250px;
+            height: auto;
             border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1em;
+            margin-bottom: 15px;
         }
-        .contact-form textarea {
-            height: 150px;
-            resize: none;
+        .post-card h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #2DD4BF;
+        }
+        .post-card p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        .post-card .date {
+            font-size: 0.9em;
+            color: #6B7280;
         }
         .cta-button {
             background: #1F2937;
@@ -81,22 +101,6 @@
             background: #374151;
             transform: scale(1.05);
         }
-        .contact-info {
-            max-width: 600px; /* Match form width */
-            margin: 0 auto; /* Center it */
-            text-align: center; /* Ensure text aligns center */
-            padding-top: 20px;
-        }
-        .contact-info p {
-            font-size: 1.1em;
-            margin: 10px 0;
-        }
-        .contact-info a {
-            color: #2DD4BF;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .contact-info a:hover { color: #3B82F6; }
         footer {
             background: #1F2937;
             color: #2DD4BF;
@@ -105,10 +109,11 @@
             font-size: 0.9em;
         }
         @media (max-width: 768px) {
-            .contact h1 { font-size: 2em; }
-            .contact p { font-size: 1em; }
+            .blog h1 { font-size: 2em; }
+            .blog p.intro { font-size: 1em; }
             nav { flex-direction: column; }
             nav a { margin: 5px 0; }
+            .post-card img { max-width: 200px; }
         }
     </style>
 </head>
@@ -124,25 +129,36 @@
             <a href="blog.html">Blog</a>
         </div>
     </nav>
-    <section class="contact" id="contact">
-        <h1>Let’s Make Waves Together</h1>
-        <p>Got a dream? We’ve got the firepower. Drop us a line—your growth starts now.</p>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Tell us your wildest goals..." required></textarea>
-            <button class="cta-button" type="submit">Launch It</button>
-        </form>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:hello@lazygrowth.com">hello@lazygrowth.com</a></p>
-            <p>Phone: (555) 123-4567</p>
+    <section class="blog" id="blog">
+        <h1>Our Brain on Blast</h1>
+        <p class="intro">Get the dirt on how we hack growth and break rules—your cheat codes start here.</p>
+        <div class="post-grid">
+            <div class="post-card">
+                <img src="digital.jpg" alt="Growth Hack Post">
+                <h2>48 Hours to Fame</h2>
+                <p>We took a nobody brand and made it viral in two days flat. Here’s the playbook.</p>
+                <p class="date">March 5, 2025</p>
+            </div>
+            <div class="post-card">
+                <img src="seo.jpg" alt="SEO Secrets">
+                <h2>SEO Secrets Even Google Hates</h2>
+                <p>Tricks so dirty, they’ll rank you before you finish reading this.</p>
+                <p class="date">March 1, 2025</p>
+            </div>
+            <div class="post-card">
+                <img src="content.jpg" alt="Content Chaos">
+                <h2>Content That Slaps</h2>
+                <p>How we turned a boring blog into a scroll-stopping legend.</p>
+                <p class="date">February 25, 2025</p>
+            </div>
         </div>
+        <button class="cta-button" style="margin-top: 40px;" onclick="location.href='contact.html'">Want More?</button>
     </section>
     <footer>
         <p>© 2025 LazyGrowth Marketing. All rights reserved.</p>
     </footer>
     <script>
-        const section = document.querySelector('.contact');
+        const section = document.querySelector('.blog');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
