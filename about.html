@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - LazyGrowth Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #FFFFFF; color: #1F2937; }
+        nav {
+            background: #1F2937;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        nav:hover { background: #374151; }
+        nav a {
+            color: #2DD4BF;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #FFFFFF; }
+        .about {
+            padding: 60px 20px;
+            text-align: center;
+            background: #1F2937;
+            color: #FFFFFF;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .about.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .about h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2DD4BF;
+        }
+        .about p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 25px;
+        }
+        .about img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 5px;
+            margin: 20px auto;
+            display: block;
+        }
+        .cta-button {
+            background: #2DD4BF;
+            color: #1F2937;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+        .cta-button:hover {
+            background: #3B82F6;
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #1F2937;
+            color: #2DD4BF;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .about h1 { font-size: 2em; }
+            .about p { font-size: 1em; }
+            nav { flex-direction: column; }
+            nav a { margin: 5px 0; }
+            .about img { max-width: 400px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">LazyGrowth Marketing</a>
+        <div>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <section class="about" id="about">
+        <h1>Who We Are</h1>
+        <p>LazyGrowth isn’t just a name—it’s a revolution. Born from a crew too smart to grind the old way, we’ve been flipping the marketing game since day one.</p>
+        <p>We’ve got the scars and the wins—years of outsmarting the hustle, turning small fries into giants, and making growth look effortless. Our secret? We work hard so you don’t have to.</p>
+        <img src="team.jpg" alt="Our Team">
+        <button class="cta-button" onclick="location.href='contact.html'">Join the Revolution</button>
+    </section>
+    <footer>
+        <p>© 2025 LazyGrowth Marketing. All rights reserved.</p>
+    </footer>
+    <script>
+        const section = document.querySelector('.about');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        observer.observe(section);
+    </script>
+</body>
+</html>
