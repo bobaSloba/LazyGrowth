@@ -28,6 +28,11 @@
             transition: color 0.3s;
         }
         nav a:hover { color: #FFFFFF; }
+        nav a.active {
+            color: #FFFFFF;
+            border-bottom: 2px solid #2DD4BF;
+            padding-bottom: 3px;
+        }
         .about {
             padding: 60px 20px;
             text-align: center;
@@ -58,7 +63,7 @@
             height: auto;
             border-radius: 5px;
             margin: 20px auto;
-            display: none; /* Hide old team.jpg since background is now the hero */
+            display: none;
         }
         .cta-button {
             background: #2DD4BF;
@@ -99,7 +104,7 @@
         <div>
             <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
-            <a href="about.html">About</a>
+            <a href="about.html" class="active">About</a>
             <a href="contact.html">Contact</a>
             <a href="pricing.html">Pricing</a>
             <a href="blog.html">Blog</a>

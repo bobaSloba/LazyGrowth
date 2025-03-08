@@ -28,6 +28,11 @@
             transition: color 0.3s;
         }
         nav a:hover { color: #FFFFFF; }
+        nav a.active {
+            color: #FFFFFF;
+            border-bottom: 2px solid #2DD4BF;
+            padding-bottom: 3px;
+        }
         .services {
             padding: 60px 20px;
             text-align: center;
@@ -59,7 +64,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9); /* Slight overlay for readability */
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
         }
         .service-card {
@@ -134,7 +139,7 @@
     <nav>
         <a href="index.html">LazyGrowth Marketing</a>
         <div>
-            <a href="services.html">Services</a>
+            <a href="services.html" class="active">Services</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>

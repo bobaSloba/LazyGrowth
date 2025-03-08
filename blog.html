@@ -28,6 +28,11 @@
             transition: color 0.3s;
         }
         nav a:hover { color: #FFFFFF; }
+        nav a.active {
+            color: #FFFFFF;
+            border-bottom: 2px solid #2DD4BF;
+            padding-bottom: 3px;
+        }
         .blog {
             padding: 60px 20px;
             text-align: center;
@@ -132,7 +137,7 @@
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
             <a href="pricing.html">Pricing</a>
-            <a href="blog.html">Blog</a>
+            <a href="blog.html" class="active">Blog</a>
         </div>
     </nav>
     <section class="blog" id="blog">

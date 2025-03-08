@@ -28,6 +28,11 @@
             transition: color 0.3s;
         }
         nav a:hover { color: #FFFFFF; }
+        nav a.active {
+            color: #FFFFFF;
+            border-bottom: 2px solid #2DD4BF;
+            padding-bottom: 3px;
+        }
         .hero {
             background: url('home-hero.jpg') no-repeat center/cover;
             color: #FFFFFF;
@@ -64,6 +69,95 @@
             background: #374151;
             transform: scale(1.05);
         }
+        .services-teaser {
+            padding: 60px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .services-teaser.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .services-teaser h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #2DD4BF;
+        }
+        .teaser-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .teaser-card {
+            background: #F3F4F6;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .teaser-card:hover {
+            transform: translateY(-10px);
+        }
+        .teaser-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #2DD4BF;
+        }
+        .teaser-card p {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .testimonial {
+            padding: 60px 20px;
+            text-align: center;
+            background: #1F2937;
+            color: #FFFFFF;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .testimonial.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .testimonial h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #2DD4BF;
+        }
+        .testimonial blockquote {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-style: italic;
+        }
+        .testimonial cite {
+            font-size: 1em;
+            color: #2DD4BF;
+        }
+        .cta-section {
+            padding: 60px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .cta-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cta-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #2DD4BF;
+        }
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
         footer {
             background: #1F2937;
             color: #2DD4BF;
@@ -80,12 +174,15 @@
             .hero p { font-size: 1.2em; }
             nav { flex-direction: column; }
             nav a { margin: 5px 0; }
+            .services-teaser h2, .testimonial h2, .cta-section h2 { font-size: 1.5em; }
+            .teaser-card h3 { font-size: 1.2em; }
+            .testimonial blockquote, .cta-section p { font-size: 1em; }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html">LazyGrowth Marketing</a>
+        <a href="index.html" class="active">LazyGrowth Marketing</a>
         <div>
             <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
@@ -100,8 +197,49 @@
         <p>We turn your goals into wins with next-level marketing magic.</p>
         <button class="cta-button" onclick="location.href='services.html'">See How We Do It</button>
     </section>
+    <section class="services-teaser">
+        <h2>What We Bring to the Table</h2>
+        <div class="teaser-grid">
+            <div class="teaser-card">
+                <h3>Digital Marketing</h3>
+                <p>Targeted ads that hit like a sniper shot—reach the right eyes, every time.</p>
+                <button class="cta-button" onclick="location.href='services.html'">Learn More</button>
+            </div>
+            <div class="teaser-card">
+                <h3>SEO</h3>
+                <p>Climb Google like it’s your playground—top spots, no sweat.</p>
+                <button class="cta-button" onclick="location.href='services.html'">Learn More</button>
+            </div>
+            <div class="teaser-card">
+                <h3>Content Creation</h3>
+                <p>Stuff so good, they’ll beg for more—words, vids, you name it.</p>
+                <button class="cta-button" onclick="location.href='services.html'">Learn More</button>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial">
+        <h2>Hear the Hype</h2>
+        <blockquote>“LazyGrowth turned our sleepy startup into a buzz machine in weeks. Absolute wizards!”</blockquote>
+        <cite>- Alex V., Fake CEO</cite>
+    </section>
+    <section class="cta-section">
+        <h2>Ready to Dominate?</h2>
+        <p>Stop dreaming and start winning—hit us up and let’s make it happen.</p>
+        <button class="cta-button" onclick="location.href='contact.html'">Get Started Now</button>
+    </section>
     <footer>
         <p>© 2025 LazyGrowth Marketing. All rights reserved.</p>
     </footer>
+    <script>
+        const sections = document.querySelectorAll('.services-teaser, .testimonial, .cta-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        sections.forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>
